@@ -27,16 +27,16 @@
                         <th>IMC</th>
                     </tr>
                     </thead>
-                    <tbody id="pacient-table">
-                    <tr class="pacient" id="first-pacient">
+                    <tbody id="patient-table">
+                    <tr class="patient" id="first-patient">
                         <td class="info-nome">Paulo</td>
-                        <td class="info-weight">100</td>
+                        <td class="info-weight">400</td>
                         <td class="info-height">2.00</td>
                         <td class="info-fat">10</td>
                         <td class="info-imc">0</td>
                     </tr>
 
-                    <tr class="pacient" >
+                    <tr class="patient" >
                         <td class="info-name">João</td>
                         <td class="info-weight">80</td>
                         <td class="info-height">1.72</td>
@@ -44,7 +44,7 @@
                         <td class="info-imc">0</td>
                     </tr>
 
-                    <tr class="pacient" >
+                    <tr class="patient" >
                         <td class="info-name">Erica</td>
                         <td class="info-weight">54</td>
                         <td class="info-height">1.64</td>
@@ -52,14 +52,14 @@
                         <td class="info-imc">0</td>
                     </tr>
 
-                    <tr class="pacient">
+                    <tr class="patient">
                         <td class="info-name">Douglas</td>
                         <td class="info-weight">85</td>
                         <td class="info-height">1.73</td>
                         <td class="info-fat">24</td>
                         <td class="info-imc">0</td>
                     </tr>
-                    <tr class="pacient" >
+                    <tr class="patient" >
                         <td class="info-name">Tatiana</td>
                         <td class="info-weight">46</td>
                         <td class="info-height">1.55</td>
@@ -71,6 +71,30 @@
 
             </section>
         </main>
+
+        <section class="container">
+            <h2 id="title-form">Adicionar novo paciente</h2>
+            <form>
+                <div class="">
+                    <label for="name">Nome:</label>
+                    <input id="name" name="name" type="text" placeholder="digite o nome do seu paciente" class="field">
+                </div>
+                <div class="group">
+                    <label for="weight">Peso:</label>
+                    <input id="weight" name="weight" type="text" placeholder="digite o peso do seu paciente" class="field mid-field">
+                </div>
+                <div class="group">
+                    <label for="height">Altura:</label>
+                    <input id="height" name="height" type="text" placeholder="digite a altura do seu paciente" class="field mid-field">
+                </div>
+                <div class="group">
+                    <label for="fat">% de Gordura:</label>
+                    <input id="fat" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="field mid-field">
+                </div>
+
+                <button id="add-patient" class="button btn-main">Adicionar</button>
+            </form>
+        </section>
 
         <script src="js/main.js"></script>
     </body>
