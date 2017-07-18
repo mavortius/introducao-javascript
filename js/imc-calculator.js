@@ -1,5 +1,14 @@
-// main.js
+// imc-calculator.js
 
+function calcImc(weight, height) {
+    var imc;
+    imc = weight / (height * height);
+
+    return imc.toFixed(2);
+}
+
+var title = document.querySelector(".title");
+title.textContent = "Aparecida Nutricionista";
 var patients = document.querySelectorAll(".patient");
 
 for (var i = 0; i < patients.length; i++) {
@@ -27,13 +36,9 @@ for (var i = 0; i < patients.length; i++) {
     }
 
     if(isWeightValid && isHeightValid) {
-        var imc = weight / (height * height);
-        imcTD.textContent = imc.toFixed(2);
+        var imc = calcImc(weight, height);
+        imcTD.textContent = imc;
     }
 }
 
-var addButton = document.querySelector("#add-patient");
 
-addButton.addEventListener("click", function () {
-    console.log("Botao clicado.");
-});

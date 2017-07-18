@@ -74,28 +74,29 @@
 
         <section class="container">
             <h2 id="title-form">Adicionar novo paciente</h2>
-            <form>
+            <form id="form-add-patient">
                 <div class="">
                     <label for="name">Nome:</label>
-                    <input id="name" name="name" type="text" placeholder="digite o nome do seu paciente" class="field">
+                    <input id="name" name="name" placeholder="digite o nome do seu paciente" class="field">
                 </div>
                 <div class="group">
                     <label for="weight">Peso:</label>
-                    <input id="weight" name="weight" type="text" placeholder="digite o peso do seu paciente" class="field mid-field">
+                    <input id="weight" name="weight" placeholder="digite o peso do seu paciente" class="field mid-field">
                 </div>
                 <div class="group">
                     <label for="height">Altura:</label>
-                    <input id="height" name="height" type="text" placeholder="digite a altura do seu paciente" class="field mid-field">
+                    <input id="height" name="height" placeholder="digite a altura do seu paciente" class="field mid-field">
                 </div>
                 <div class="group">
                     <label for="fat">% de Gordura:</label>
-                    <input id="fat" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="field mid-field">
+                    <input id="fat" name="fat" placeholder="Digite a porcentagem de gordura do seu paciente" class="field mid-field">
                 </div>
 
                 <button id="add-patient" class="button btn-main">Adicionar</button>
             </form>
         </section>
 
-        <script src="js/main.js"></script>
+        <script src="js/imc-calculator.js"></script>
+        <script src="js/form.js"></script>
     </body>
 </html>
