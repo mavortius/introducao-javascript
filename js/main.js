@@ -31,3 +31,9 @@ for (var i = 0; i < patients.length; i++) {
         imcTD.textContent = imc.toFixed(2);
     }
 }
+
+var addButton = document.querySelector("#add-patient");
+
+addButton.addEventListener("click", function () {
+    console.log("Botao clicado.");
+});
