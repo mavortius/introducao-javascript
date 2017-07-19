@@ -83,7 +83,6 @@ label {
     width: 100%;
     border: 1px solid #ccc;
     padding: .7em;
-    width: 100%;
 }
 
 .mid-field {
@@ -94,20 +93,19 @@ label {
 .group {
     width: 32%;
     display: inline-block;
-    padding: 10px 0px;
+    padding: 10px 0;
 }
 
 button {
     padding: .5em 2em;
-    border: 0;
-    border-bottom: 3px solid;
     font-size: 1.2em;
     cursor: pointer;
     margin: 0;
     margin-top: -3px;
     color: #fff;
     background-color: #0c8cd3;
-    border-color: #04324c;
+    border: 0 #04324c;
+    border-bottom: 3px solid;
     width: 20%;
     display: block;
     clear: both;
@@ -116,7 +114,7 @@ button {
 }
 
 button:active {
-    margin-top: 0px;
+    margin-top: 0;
     border: 0;
 }
 
@@ -136,4 +134,8 @@ button[disabled=disabled], button:disabled {
 
 .patient-invalid {
     background-color: lightcoral;
+}
+
+#error-messages {
+    color: red;
 }

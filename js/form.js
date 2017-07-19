@@ -12,25 +12,66 @@ function getPatientFromForm(form) {
 
 function mountTR(patient) {
     var patientTR = document.createElement("tr");
-    var nameTD = document.createElement("td");
-    var weightTD = document.createElement("td");
-    var heightTD = document.createElement("td");
-    var fatTD = document.createElement("td");
-    var imcTD = document.createElement("td");
 
-    nameTD.textContent = patient.name;
-    weightTD.textContent = patient.weight;
-    heightTD.textContent = patient.height;
-    fatTD.textContent = patient.fat;
-    imcTD.textContent = patient.imc;
+    patientTR.classList.add("patient");
 
-    patientTR.appendChild(nameTD);
-    patientTR.appendChild(weightTD);
-    patientTR.appendChild(heightTD);
-    patientTR.appendChild(fatTD);
-    patientTR.appendChild(imcTD);
+    patientTR.appendChild(mountTD(patient.name, "info-name"));
+    patientTR.appendChild(mountTD(patient.weight, "info-weight"));
+    patientTR.appendChild(mountTD(patient.height, "info-height"));
+    patientTR.appendChild(mountTD(patient.fat, "info-fat"));
+    patientTR.appendChild(mountTD(patient.imc, "info-imc"));
 
     return patientTR;
+}
+
+function mountTD(data, styleClass) {
+    var td = document.createElement("td");
+
+    td.classList.add(styleClass);
+
+    td.textContent = data;
+
+    return td;
+}
+
+function validatePatient(patient) {
+    var errors = [];
+    
+    if (patient.name.length === 0) {
+        errors.push("O nome não pode ser em branco");
+    }
+
+    if (patient.fat.length === 0) {
+        errors.push("A gordura não pode ser em branco");
+    }
+
+    if (patient.weight.length === 0) {
+        errors.push("O peso não pode ser em branco");
+    }
+
+    if (patient.height.length === 0) {
+        errors.push("A altura não pode ser em branco");
+    }
+    
+    if (!validateWeight(patient.weight)) {
+        errors.push("Peso invalido!");
+    }
+    if (!validateHeight(patient.height)) {
+        errors.push("Altura invalida!");
+    }
+    return errors;
+
+}
+function showErrorMessages(errors) {
+    var ul = document.querySelector("#error-messages");
+    ul.innerHTML = "";
+
+    errors.forEach(function (error) {
+        var li = document.createElement("li");
+        li.textContent = error;
+        ul.appendChild(li);
+
+    });
 }
 
 var addButton = document.querySelector("#add-patient");
@@ -41,7 +82,18 @@ addButton.addEventListener("click", function (event) {
     var form = document.querySelector("#form-add-patient");
     var patient = getPatientFromForm(form);
     var patientTR = mountTR(patient);
+    var errors = validatePatient(patient);
+
+    if (errors.length > 0) {
+        showErrorMessages(errors);
+        return;
+    }
+
     var table = document.querySelector("#patient-table");
 
     table.appendChild(patientTR);
+    form.reset();
+
+    var errorMessages = document.querySelector("#error-messages");
+    errorMessages.innerHTML = "";
 });

@@ -7,6 +7,14 @@ function calcImc(weight, height) {
     return imc.toFixed(2);
 }
 
+function validateWeight(weight) {
+    return (weight >= 0 && weight <= 300);
+}
+
+function validateHeight(height) {
+    return (height >= 0 && height <= 3.00);
+}
+
 var title = document.querySelector(".title");
 title.textContent = "Aparecida Nutricionista";
 var patients = document.querySelectorAll(".patient");
@@ -18,17 +26,17 @@ for (var i = 0; i < patients.length; i++) {
     var heightTD = patient.querySelector(".info-height");
     var height = heightTD.textContent;
     var imcTD = patient.querySelector(".info-imc");
-    var isWeightValid = true;
-    var isHeightValid = true;
+    var isWeightValid = validateWeight(weight);
+    var isHeightValid = validateHeight(height);
 
-    if(weight <= 0 || weight >= 300) {
+    if(!isWeightValid) {
         console.log("Peso invalido!");
         isWeightValid = false;
         imcTD.textContent = "Peso invalido!";
         patient.classList.add("patient-invalid");
     }
 
-    if(height <= 0 || height >= 3.00) {
+    if(!isHeightValid) {
         console.log("Altura invalida!");
         isHeightValid = false;
         imcTD.textContent = "Altura invalida!";
