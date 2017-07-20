@@ -74,6 +74,13 @@ function showErrorMessages(errors) {
     });
 }
 
+function addPatientsToTable(patient) {
+    var patientTR = mountTR(patient);
+    var table = document.querySelector("#patient-table");
+
+    table.appendChild(patientTR);
+}
+
 var addButton = document.querySelector("#add-patient");
 
 addButton.addEventListener("click", function (event) {
@@ -81,7 +88,6 @@ addButton.addEventListener("click", function (event) {
 
     var form = document.querySelector("#form-add-patient");
     var patient = getPatientFromForm(form);
-    var patientTR = mountTR(patient);
     var errors = validatePatient(patient);
 
     if (errors.length > 0) {
@@ -89,9 +95,7 @@ addButton.addEventListener("click", function (event) {
         return;
     }
 
-    var table = document.querySelector("#patient-table");
-
-    table.appendChild(patientTR);
+    addPatientsToTable(patient);
     form.reset();
 
     var errorMessages = document.querySelector("#error-messages");
