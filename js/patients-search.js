@@ -5,7 +5,7 @@ var addButton = document.querySelector("#search-patients");
 addButton.addEventListener("click", function () {
     var request = new XMLHttpRequest();
 
-    request.open("GET", "https://api-pacientes.herokuapp.com/pacientes");
+    request.open("GET", "http://localhost:8080/api/patients");
     request.addEventListener("load", function () {
         var response = request.responseText;
         var patients = JSON.parse(response);
